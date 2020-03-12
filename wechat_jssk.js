@@ -31,7 +31,7 @@
      * 初始化
      */
     WECHAT_JSSDK.prototype.init = function () {
-
+        // TODO 检测是否在微信APP内
     };
 
     // 分享
@@ -45,10 +45,12 @@
         return v === undefined || v === null
     };
 
+    // 检测是否在微信APP内
     WECHAT_JSSDK.prototype._check_wechat_app = function(){
         return /MicroMessenger/i.test(navigator.userAgent) ? true : false;
     };
 
+    // 打印 日志
     WECHAT_JSSDK.prototype._log = function(k, v){
 
         if(this.opts.debug) {
