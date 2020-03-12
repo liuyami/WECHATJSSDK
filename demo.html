@@ -1,20 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>default html title </title>
 </head>
 <body>
 
+<script src="//res.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
 <script src="wechat_jssk.js"></script>
-<img src="http://baidu.com/logo.png">
-<script>
+<img src="https://www.baidu.com/img/bd_logo1.png">
 
-    var jssdk = new WECHAT_JSSDK({
-        appid : 'xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx',
-        url : location.href,
-        debug: true
-    });
+<div>
+    <p>自定义分享内容</p>
+    <p><input type="url" id="imgUrl" name="imgUrl" placeholder="分享图案的URL"
+              value="https://www.baidu.com/img/bd_logo1.png"></p>
+    <p><input type="text" id="title" name="title" placeholder="标题" value="默认标题"></p>
+    <p><input type="text" id="desc" name="desc" placeholder="描述" value="默认描述文案"></p>
+    <p><input type="url" id="link" name="link" placeholder="链接"></p>
+
+    <p>
+        <button onclick="changeShareData()">改变分享!</button>
+    </p>
+</div>
+
+<div>
+    <button onclick="hidenShare()">隐藏分享菜单</button>
+    <button onclick="showShare()">显示分享菜单</button>
+</div>
+
+<script>
+    document.querySelector('#link').value = location.href;
+
+
+    let jssdk = new WECHAT_JSSDK();
+
+
+    function changeShareData() {
+        let datas = {
+            title: document.querySelector('#title').value,
+            desc: document.querySelector('#desc').value,
+            link: document.querySelector('#link').value,
+            imgUrl: document.querySelector('#imgUrl').value
+        }
+
+        jssdk.share(datas);
+    }
+
+    function hidenShare() {
+        jssdk.hideAllNonBaseMenuItem();
+    }
+
+    function showShare() {
+        jssdk.showAllNonBaseMenuItem();
+    }
+
+
 
 </script>
 
