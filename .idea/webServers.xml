@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="8ccd4d63-edd7-41ed-b68c-c2962a28e910" name="yami.h5.yscase.com" url="https://yami.h5.yscase.com/yami_share">
+        <fileTransfer host="47.103.79.39" port="21" rootFolder="/yami_share">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+          <option name="port" value="21" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
