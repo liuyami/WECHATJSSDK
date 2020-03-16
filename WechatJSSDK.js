@@ -64,9 +64,12 @@
 
     // 分享
     WechatJSSDK.prototype.share = function (params) {
-        if (!this.envpass) {
-            return this;
-        }
+
+        let timer = window.setInterval(function(){
+            if(this.envpass) {
+                clearInterval(timer);
+            }
+        },100);
 
         let share_data = Object.assign(this.share_default_data, params);
 
@@ -101,11 +104,6 @@
             return this;
         }
 
-        let timer = window.setInterval(function(){
-            if(this.envpass) {
-                clearInterval(timer);
-            }
-        },100);
 
         let opts = Object.assign({
             needResult: 1, // 默认为0，扫描结果由微信处理，1则直接返回扫描结果，
