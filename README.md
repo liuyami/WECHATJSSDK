@@ -27,8 +27,8 @@
 // 示例1 全部使用默认参数
 let jssdk = new WechatJSSDK();
 
-// 实例2 使用自定义参数
-let jssdk = new WechatJSSDK({
+// 实例2 使用自定义参数且后续不需要用到微信JSSDK功能
+new WechatJSSDK({
     client_id: '1dfcc42c-f073-40e6-9311-1466319d7d4d', //有礼小生公众号
     url: 'https://yami.h5.yscase.com/yami_share/demo.html',
     debug: true,
