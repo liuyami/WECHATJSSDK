@@ -8,22 +8,15 @@
         this.opts = Object.assign({
             client_id: '9545d869-95eb-47ad-8667-98b5541d4af2',
             url: location.href,
-            debug: false
-        }, params);
-
-        this._log('参数',this.opts);
-
-        // 默认分享内容
-        this.share_default_data = {
+            debug: false,
             title: '测试站点：' + document.title,
             desc: '',
             link: location.href,
             imgUrl: this._is_undefined(document.images[0]) ? '' : document.images[0].src,
             complete: function () {},
-        };
+        }, params);
 
-        this._log('默认分享', this.share_default_data);
-
+        this._log('参数',this.opts);
 
         this.envpass = false;
 
@@ -65,13 +58,7 @@
     // 分享
     WechatJSSDK.prototype.share = function (params) {
 
-        let timer = window.setInterval(function(){
-            if(this.envpass) {
-                clearInterval(timer);
-            }
-        },100);
-
-        let share_data = Object.assign(this.share_default_data, params);
+        let share_data = Object.assign(this.opts, params);
 
         wx.updateAppMessageShareData(share_data);
         wx.updateTimelineShareData(share_data);
