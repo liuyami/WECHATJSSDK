@@ -9,6 +9,8 @@
             client_id: '9545d869-95eb-47ad-8667-98b5541d4af2',
             url: location.href,
             debug: false,
+            onSDKReady: function(){},
+            onSDKError: function(){},
             title: '测试站点：' + document.title,
             desc: '',
             link: location.href,
@@ -36,6 +38,7 @@
                     wx.config(data.config);
 
                     wx.ready(function () {
+                        _this.opts.onSDKReady();
                         _this.envpass = true;
                         _this.share();
 
@@ -43,6 +46,7 @@
                     });
 
                     wx.error(function (error) {
+                        _this.opts.onSDKError();
                         this._log('签名校验失败', error)
                         return this;
                     });

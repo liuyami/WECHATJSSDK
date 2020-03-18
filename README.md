@@ -15,13 +15,15 @@
 
 
 构造方法对象参数
-- client_id：客户端ID，可选，默认为：语铄公众号，如果要使用其他公众号请先联系沟通
-- url：引用微信JSSDK的页面地址，可选，默认为：location.href
-- debug：开启调试模式，可选，默认 false
-- title：分享标题，默认网页 TITLE 标签内容
-- desc： 分享描述，默认为空
-- link：分享的URL，默认是引入组件的页面地址
-- imgUrl: 分享图标，默认是页面 body 内第一张图
+- client_id：可选，默认为：语铄公众号，客户端ID，如果要使用其他公众号请先联系沟通
+- url：可选，引用微信JSSDK的页面地址，默认为：location.href
+- debug：可选，开启调试模式，默认 false
+- onSDKReady:可选，微信接口验证可用后执行的回调
+- onSDKError:可选，微信接口验证可失败执行的回调
+- title：可选，分享标题，默认网页 TITLE 标签内容
+- desc： 可选，分享描述，默认为空
+- link：可选，分享的URL，默认是引入组件的页面地址
+- imgUrl: 可选，分享图标，默认是页面 body 内第一张图
 
 ```javascript
 // 示例1 全部使用默认参数
@@ -32,6 +34,9 @@ new WechatJSSDK({
     client_id: '1dfcc42c-f073-40e6-9311-1466319d7d4d', //有礼小生公众号
     url: 'https://yami.h5.yscase.com/yami_share/demo.html',
     debug: true,
+    onSDKReady: function(){
+        document.getElementById('bgm').play();
+    },
     title: '标题文案',
     desc: '描述',
     link: 'https://yami.h5.yscase.com/yami_share/demo.html',
